@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="UTF-8">
+<title>ML Flask Deployment Test</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="jumbotron">
+  <h1 class="display-4">Predict kWh</h1>
+  <form action="{{ url_for('predict')}}"method="post">
+      <input type="text" class="form-control-primary" name="t-1" placeholder="T-1" required="required" />
+      <input type="text" class="form-control-primary" name="t-2" placeholder="T-2" required="required" />
+      <button type="submit" class="btn btn-primary">Predict</button>
+  </form>
+  <p class="lead">{{ prediction_text }}</p>
+</div>
+<br>
+<br>
+</div>
+</body>
+</html>

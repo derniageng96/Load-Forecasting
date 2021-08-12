@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="UTF-8">
+<title>AAEON Power Prediction</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<style>
+  label {
+    width: 170px;
+    margin-left: 10px;
+  }
+</style>
+<div class="jumbotron">
+  <center>
+  <h2 class="display-4">AAEON Power Consumption Prediction</h2><br><br>
+</center>
+  <form action="{{ url_for('predict')}}"method="post">
+      <div class="block" style="display: inline-block; width: auto; text-align: left;">
+        <label>Power Consumption</label>
+        <input type="text" class="form-control-primary" name="pt-9" placeholder="T-9" required="required" />
+        <input type="text" class="form-control-primary" name="pt-8" placeholder="T-8" required="required" />
+        <input type="text" class="form-control-primary" name="pt-7" placeholder="T-7" required="required" />
+        <input type="text" class="form-control-primary" name="pt-6" placeholder="T-6" required="required" />
+        <input type="text" class="form-control-primary" name="pt-5" placeholder="T-5" required="required" />
+        <input type="text" class="form-control-primary" name="pt-4" placeholder="T-4" required="required" />
+        <input type="text" class="form-control-primary" name="pt-3" placeholder="T-3" required="required" />
+        <input type="text" class="form-control-primary" name="pt-2" placeholder="T-2" required="required" />
+        <input type="text" class="form-control-primary" name="pt-1" placeholder="T-1" required="required" /> 
+      </div>
+      <br>
+      <div class="block" style="display: inline-block; width: auto; text-align: left;">
+        <label>Apparent Total Power</label>
+        <input type="text" class="form-control-primary" name="at-9" placeholder="T-9" required="required" />
+        <input type="text" class="form-control-primary" name="at-8" placeholder="T-8" required="required" />
+        <input type="text" class="form-control-primary" name="at-7" placeholder="T-7" required="required" />
+        <input type="text" class="form-control-primary" name="at-6" placeholder="T-6" required="required" />
+        <input type="text" class="form-control-primary" name="at-5" placeholder="T-5" required="required" />
+        <input type="text" class="form-control-primary" name="at-4" placeholder="T-4" required="required" />
+        <input type="text" class="form-control-primary" name="at-3" placeholder="T-3" required="required" />
+        <input type="text" class="form-control-primary" name="at-2" placeholder="T-2" required="required" />
+        <input type="text" class="form-control-primary" name="at-1" placeholder="T-1" required="required" /> 
+      </div>
+      <br>
+      <div class="block" style="display: inline-block; width: auto; text-align: left;">
+        <label>Weekend Indicator</label>
+        <input type="text" class="form-control-primary" name="ht-9" placeholder="T-9" required="required" />
+        <input type="text" class="form-control-primary" name="ht-8" placeholder="T-8" required="required" />
+        <input type="text" class="form-control-primary" name="ht-7" placeholder="T-7" required="required" />
+        <input type="text" class="form-control-primary" name="ht-6" placeholder="T-6" required="required" />
+        <input type="text" class="form-control-primary" name="ht-5" placeholder="T-5" required="required" />
+        <input type="text" class="form-control-primary" name="ht-4" placeholder="T-4" required="required" />
+        <input type="text" class="form-control-primary" name="ht-3" placeholder="T-3" required="required" />
+        <input type="text" class="form-control-primary" name="ht-2" placeholder="T-2" required="required" />
+        <input type="text" class="form-control-primary" name="ht-1" placeholder="T-1" required="required" />
+      </div>
+      <br>
+      <div class="block" style="display: inline-block; width: auto; text-align: left;">
+        <label>Temperature(Celcius)</label>
+        <input type="text" class="form-control-primary" name="ct-9" placeholder="T-9" required="required" />
+        <input type="text" class="form-control-primary" name="ct-8" placeholder="T-8" required="required" />
+        <input type="text" class="form-control-primary" name="ct-7" placeholder="T-7" required="required" />
+        <input type="text" class="form-control-primary" name="ct-6" placeholder="T-6" required="required" />
+        <input type="text" class="form-control-primary" name="ct-5" placeholder="T-5" required="required" />
+        <input type="text" class="form-control-primary" name="ct-4" placeholder="T-4" required="required" />
+        <input type="text" class="form-control-primary" name="ct-3" placeholder="T-3" required="required" />
+        <input type="text" class="form-control-primary" name="ct-2" placeholder="T-2" required="required" />
+        <input type="text" class="form-control-primary" name="ct-1" placeholder="T-1" required="required" />
+      </div>
+      <br>
+      <div class="block" style="display: inline-block; width: auto; text-align: left;">
+        <label>Session</label>
+        <input type="text" class="form-control-primary" name="st-9" placeholder="T-9" required="required" />
+        <input type="text" class="form-control-primary" name="st-8" placeholder="T-8" required="required" />
+        <input type="text" class="form-control-primary" name="st-7" placeholder="T-7" required="required" />
+        <input type="text" class="form-control-primary" name="st-6" placeholder="T-6" required="required" />
+        <input type="text" class="form-control-primary" name="st-5" placeholder="T-5" required="required" />
+        <input type="text" class="form-control-primary" name="st-4" placeholder="T-4" required="required" />
+        <input type="text" class="form-control-primary" name="st-3" placeholder="T-3" required="required" />
+        <input type="text" class="form-control-primary" name="st-2" placeholder="T-2" required="required" />
+        <input type="text" class="form-control-primary" name="st-1" placeholder="T-1" required="required" /> 
+      </div>
+        <br><br>
+        <center>
+          <button type="submit" class="btn btn-primary">Predict</button>
+        </center>
+  </form>
+  <p class="lead" style="margin-left: 10px;">{{ prediction_text }}</p>
+</div>
+<br>
+<br>
+</div>
+</body>
+</html>
